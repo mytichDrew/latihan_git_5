@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    /* ... styling sama seperti sebelumnya ... */
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form onsubmit="return loginUser(event)">
+      <label for="username">Username</label>
+      <input type="text" id="username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required>
+
+      <button type="submit">Log In</button>
+    </form>
+    <p id="error-message" style="color:red; text-align:center;"></p>
+  </div>
+
+  <script>
+    function loginUser(event) {
+      event.preventDefault(); // Mencegah form reload
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === "admin" && password === "123456") {
+        window.location.href = "dashboard.html";
+      } else {
+        document.getElementById("error-message").textContent = "Username atau password salah!";
+      }
+
+      return false;
+    }
+  </script>
+</body>
+</html>
